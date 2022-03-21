@@ -1,6 +1,6 @@
 # Phase 3 Project "My Cook Book"
 
-## `User`
+## User
 (has many :recipes)
 
 `user` table
@@ -8,7 +8,7 @@
 - username
 - email
 
-## `Recipe`
+## Recipe
 (belongs to :user)
 
 `recipe` table
