@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
   get '/users' do
-    User.all.to_json(include:[recipes: {except:[:created_at, :updated_at]}], except: [:created_at, :updated_at])
+    User.all.to_json(include:[recipes: {except:[:created_at, :updated_at, :user_id]}], except: [:created_at, :updated_at])
   end
 
   post '/users' do

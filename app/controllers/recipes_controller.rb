@@ -15,16 +15,16 @@ class RecipesController < ApplicationController
   get '/recipes/:id' do
     recipe= Recipe.find_by_id(params["id"])
     if recipe
-      recipe.to_json
+      recipe.to_json(include: :user)
     else
       {errors: "Record not found, use different id."}.to_json
     end
   end
 
   patch '/recipes/:id' do
-    recipe= User.find_by_id(params["id"])
+    recipe= Recipe.find_by_id(params["id"])
     if recipe && recipe.update(params)
-      recipe.to_json(include: :recipes)
+      recipe.to_json(include: :user)
     elsif !recipe
       {errors: "Record not found with id #{params['id']}"}.to_json
     else
