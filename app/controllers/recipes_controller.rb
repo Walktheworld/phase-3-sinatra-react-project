@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     if recipe.id
       recipe.to_json(include: :user)
     else
-      recipe.errors.full_messages.to_sentance
+      recipe.errors.full_messages.to_sentence
     end
   end
 
@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
     elsif !recipe
       {errors: "Record not found with id #{params['id']}"}.to_json
     else
-      recipe.errors.full_messages.to_sentance
+      recipe.errors.full_messages.to_sentence
     end
   end
   
